@@ -11,11 +11,12 @@ export class MoviesComponent implements OnInit {
   theaters: Object;
   kids: Object;
   drama : Object;
-  searchRes : Array<Object> = []
+  searchRes : Array <Object> = []
   constructor(private moviesService: MoviesService) { }
   search(myQuery){
-    this.moviesService.findAMovie(myQuery.search).subscribe(data => {
-      this.searchRes = data.results
+    let searchItem = myQuery.search
+    this.moviesService.findAMovie(searchItem).subscribe(data => {
+    this.searchRes = data['results']
     })
   }
 
